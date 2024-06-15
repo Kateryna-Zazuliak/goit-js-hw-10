@@ -12,13 +12,13 @@ const refs = {
     secondsElem: document.querySelector('[data-seconds]'),
 };
 let intervalId;
-let userSelectedDate;
-let currentTime;
+let userSelectedDate = null;
+refs.startBtn.disabled = true;
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
-  minuteIncrement: 1,
+    minuteIncrement: 1,
     onClose(selectedDates) {
         const selectedDate = selectedDates[0];
         if (selectedDate < new Date()) {
