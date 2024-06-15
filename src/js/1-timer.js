@@ -48,12 +48,12 @@ refs.startBtn.addEventListener('click', () => {
         const diff = userSelectedDate - currentTime;
         if (diff <= 0) {
             clearInterval(intervalId);
-            updateTimerUI({ days: 0, hours: 0, minutes: 0, seconds: 0});
+            updateTimer({ days: 0, hours: 0, minutes: 0, seconds: 0});
             refs.inputElem.disabled = false;
             return;
         }
         const time = convertMs(diff);
-        updateTimerUI(time);
+        updateTimer(time);
         }, 1000);
 });
 
@@ -78,7 +78,7 @@ function convertMs(ms) {
 function addLeadingZero(value) {
     return value.toString().padStart(2, '0');
 };
-function updateTimerUI({ days, hours, minutes, seconds }) {
+function updateTimer({ days, hours, minutes, seconds }) {
     refs.daysElem.textContent = addLeadingZero(days);
     refs.hoursElem.textContent = addLeadingZero(hours);
     refs.minutesElem.textContent = addLeadingZero(minutes);
